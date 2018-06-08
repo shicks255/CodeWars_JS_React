@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
 
 export default class Header extends React.Component
@@ -11,13 +10,17 @@ export default class Header extends React.Component
 
     render()
     {
-
         return(
-            <nav className="nav nav-justified">
-                <a className="nav-item nav-link active" href="#">Steven M. Hicks</a>
-                <a className="nav-item nav-link" href="#">JavaScript Practice</a>
-                <a className="nav-item nav-link" href="#">Link</a>
-                <a className="nav-item nav-link disabled" href="#">Disabled</a>
+            <nav className="navbar navbar-default">
+                <div className="container-fluid">
+                    <div className="navbar-header">
+                        <a href='' className="navbar-brand">Steven Hicks</a>
+                    </div>
+                    <ul className="nav navbar-nav">
+                        <li><a href="#">Steven M. Hicks</a></li>
+                        <li><a href="#">JavaScript Practice</a></li>
+                    </ul>
+                </div>
             </nav>
         );
     }
