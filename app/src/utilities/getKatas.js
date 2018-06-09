@@ -9,12 +9,14 @@ export const getKatas = function()
             id: 1,
             name: "Equal Sides of an Array",
             difficulty: 7,
+            description: 'Test',
             kata: functions.equalSidesOfAnArray
         },
         {
             id: 2,
             name: "Sorted Word",
             difficulty: 7,
+            description: '',
             kata: function ()
             {
 

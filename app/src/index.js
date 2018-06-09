@@ -26,7 +26,7 @@ class App extends React.Component
         return (
             <div>
                 <Header />
-                <KataBrowser/>
+                <KataBrowser katas={this.state.katas}/>
                 <Kata/>
                 <Footer />
             </div>

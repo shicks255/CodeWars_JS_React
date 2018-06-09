@@ -3,9 +3,17 @@ import React from "react";
 export default class Footer extends React.Component
 {
 
+
     constructor(props)
     {
         super(props);
+        const date = new Date();
+        const dateString = date.toLocaleDateString();
+
+
+        this.state = {
+            date: dateString
+        }
     }
 
 
@@ -14,7 +22,9 @@ export default class Footer extends React.Component
 
         return(
 
-            <h1>hihi</h1>
+            <div className="footer">
+                <h1>Steven M Hicks {this.state.date}</h1>
+            </div>
 
         );
 
