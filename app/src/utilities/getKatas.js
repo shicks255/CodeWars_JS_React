@@ -9,7 +9,10 @@ export const getKatas = function()
             id: 1,
             name: "Equal Sides of an Array",
             difficulty: 7,
-            description: 'Test',
+            url: '',
+            description: 'You are going to be given an array of integers.' +
+            '\n\t\nYour job is to take that array and find an index N where the sum of the integer to the ' +
+            'left of n is equal to the sum of the integers to the right of n.',
             kata: functions.equalSidesOfAnArray
         },
         {
