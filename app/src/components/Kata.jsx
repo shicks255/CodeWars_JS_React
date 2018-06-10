@@ -9,8 +9,12 @@ export default class Kata extends React.Component
 
     render()
     {
-
-        return('');
+        const kata = this.props.selectedKata;
+        return(
+            <div className="col">
+                <h3>{kata.name}</h3>
+            </div>
+        );
 
     }
 

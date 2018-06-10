@@ -23,18 +23,39 @@ class App extends React.Component
 
     render()
     {
+        const selectedKata = this.state.katas.find((value, index) =>
+        {
+            if (value.id === this.state.selectedKata)
+                return value;
+        });
+
+        const kataDetail = selectedKata ?
+            <Kata selectedKata={selectedKata}/> :
+                '';
+
         return (
             <div>
                 <Header />
-                <KataBrowser katas={this.state.katas}/>
-                <Kata/>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-4 border">
+                            <KataBrowser selected={this.state.selectedKata} onclick={(kataId) => this.clickKata(kataId)} katas={this.state.katas}/>
+                        </div>
+                        <div className="col-md-8 border">
+                            {kataDetail}
+                        </div>
+                    </div>
+                </div>
                 <Footer />
             </div>
         )
     }
+
+    clickKata(kataId)
+    {
+        this.setState({selectedKata: kataId});
+    }
 }
-
-
 
 ReactDOM.render(
     <App />,
