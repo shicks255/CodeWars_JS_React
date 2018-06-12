@@ -12,7 +12,6 @@ export default class Kata extends React.Component
         const kata = this.props.selectedKata;
 
         const showSolution = this.props.solutionsShown[kata.id];
-
         const solution = showSolution ?
             <div>{kata.kata.toString()}</div>: '';
 

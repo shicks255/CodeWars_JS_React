@@ -19,12 +19,13 @@ export default class Footer extends React.Component
 
     render()
     {
-
         return(
 
-            <div className="footer navbar navbar-default">
-                <h1>Steven M Hicks {this.state.date}</h1>
-            </div>
+            <footer>
+                <div className="navbar-fixed-bottom bg-info">
+                    <h1>Steven M Hicks {this.state.date}</h1>
+                </div>
+            </footer>
 
         );
 
