@@ -4,8 +4,6 @@ var functions = {
     equalSidesOfAnArray: function(array)
     {
         let length = array.length;
-        //find mid point of array, rounded down.
-        //subtract 1 for 0 based to make it easier
         var middle = Math.floor(array.length / 2) - 1;
 
         for (let i = middle; i > 0; i--)
