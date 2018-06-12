@@ -37,6 +37,9 @@ class App extends React.Component
             <div>
                 <Header />
                 <div className="container">
+                    <div className="row justify-content-center">
+                        <h3>CodeWars.com JavaScript Problems:</h3>
+                    </div>
                     <div className="row">
                         <div className="col-md-4 border">
                             <KataBrowser selected={this.state.selectedKata} onclick={(kataId) => this.clickKata(kataId)} katas={this.state.katas}/>

@@ -10,7 +10,6 @@ export default class KataBrowser extends React.Component
 
     render()
     {
-        console.log(this.props);
         const stubs = this.props.katas.map((value, index) =>
         {
             return (

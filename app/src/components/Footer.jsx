@@ -22,7 +22,7 @@ export default class Footer extends React.Component
 
         return(
 
-            <div className="footer">
+            <div className="footer navbar navbar-default">
                 <h1>Steven M Hicks {this.state.date}</h1>
             </div>
 
