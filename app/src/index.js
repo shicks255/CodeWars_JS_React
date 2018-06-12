@@ -18,6 +18,7 @@ class App extends React.Component
 
         this.state = {
             katas: getKatas(),
+            solutionsShow: Array(getKatas().length).fill(false),
         }
     }
 
@@ -30,7 +31,7 @@ class App extends React.Component
         });
 
         const kataDetail = selectedKata ?
-            <Kata selectedKata={selectedKata}/> :
+            <Kata solutionsShown={this.state.solutionsShow} selectedKata={selectedKata} toggleSolution={(id) => this.toggleShowSolution(id)}/> :
                 '';
 
         return (
@@ -57,6 +58,17 @@ class App extends React.Component
     clickKata(kataId)
     {
         this.setState({selectedKata: kataId});
+    }
+
+    toggleShowSolution(id)
+    {
+        const showSolutions = this.state.solutionsShow;
+        const newArray = this.state.solutionsShow.slice();
+        newArray[id] = !newArray[id];
+
+        this.setState({
+            solutionsShow:newArray
+        });
     }
 }
 
