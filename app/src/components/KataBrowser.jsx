@@ -23,7 +23,6 @@ export default class KataBrowser extends React.Component
             <div>
                 {stubs}
             </div>
-
             );
     }
 

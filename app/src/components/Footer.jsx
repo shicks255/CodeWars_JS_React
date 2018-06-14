@@ -2,8 +2,6 @@ import React from "react";
 
 export default class Footer extends React.Component
 {
-
-
     constructor(props)
     {
         super(props);
@@ -15,7 +13,6 @@ export default class Footer extends React.Component
             date: dateString
         }
     }
-
 
     render()
     {
