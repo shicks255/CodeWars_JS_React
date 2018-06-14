@@ -7,6 +7,17 @@ h1 {
     margin-bottom: 0px;
 }
 
+.kataBrowser{
+    padding: 5px;
+}
+.kata{
+    padding: 5px;
+}
+
+a {
+    cursor: pointer;
+}
+
 .border {
     border: 1px solid blue;
 }

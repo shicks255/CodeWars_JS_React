@@ -20,7 +20,7 @@ export default class KataBrowser extends React.Component
 
 
         return(
-            <div>
+            <div className="kataBrowser">
                 {stubs}
             </div>
             );

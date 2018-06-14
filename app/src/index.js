@@ -32,7 +32,7 @@ class App extends React.Component
 
         const kataDetail = selectedKata ?
             <Kata solutionsShown={this.state.solutionsShow} selectedKata={selectedKata} toggleSolution={(id) => this.toggleShowSolution(id)}/> :
-                '';
+                'Select a problem to see its details.';
 
         return (
             <div>
@@ -45,7 +45,7 @@ class App extends React.Component
                         <div className="col-md-4 border">
                             <KataBrowser selected={this.state.selectedKata} onclick={(kataId) => this.clickKata(kataId)} katas={this.state.katas}/>
                         </div>
-                        <div className="col-md-8 border">
+                        <div className="col-md-8 border kata">
                             {kataDetail}
                         </div>
                     </div>
