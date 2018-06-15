@@ -19,7 +19,7 @@ export default class KataBrowser extends React.Component
         });
 
 
-        const header = this.props.difficulty == 10 ? "Showing all Katas" : "Show Katas with difficulty " + this.props.difficulty;
+        const header = this.props.difficulty == 10 ? "Showing all Katas" : "Showing Katas with difficulty " + this.props.difficulty;
 
         return(
             <div className="kataBrowser">

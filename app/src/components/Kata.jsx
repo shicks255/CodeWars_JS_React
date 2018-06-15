@@ -18,7 +18,6 @@ export default class Kata extends React.Component
         const questionAnswerArray = kata.testData.map((value, index) =>
         {
             const answer = kata.kata(value);
-            const question = value.length>0 ? value : '[]';
             return (<p key={index}>{value + " = " + answer}</p>);
         });
 
@@ -28,7 +27,7 @@ export default class Kata extends React.Component
 
         return(
             <div className="col">
-                <h4>{kata.name}</h4>
+                <h4>{kata.name} - difficulty {kata.difficulty}</h4>
                 <a onClick={() => this.handleClick(kata.url)}>Link</a>
                 <p><b>Description:</b></p>
                 <p>{kata.description}</p>

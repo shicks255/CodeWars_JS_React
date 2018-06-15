@@ -22,15 +22,7 @@ class App extends React.Component
             solutionsShow: Array(getKatas().length).fill(false),
             difficulty: 10,
             katas: getKatas(10),
-            // katas: this.getKatas(this.difficulty),
         }
-
-        this.getKatas(this.state.difficulty);
-    }
-
-    componentDidMount()
-    {
-        this.getKatas(this.state.difficulty);
     }
 
     getKatas(dif)

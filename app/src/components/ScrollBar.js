@@ -22,7 +22,7 @@ export default class ScrollBar extends React.Component{
                             max={10}
                             data-step-labels="[4,5,6,7,8,9,10]"
                             onChange={this.setDifficulty}>
-                            Difficulty <i>(10 == All Katas)</i>
+                            Difficulty <i>(10 = All Katas)</i>
                             <br/>
 
                         </mobiscroll.Slider>
