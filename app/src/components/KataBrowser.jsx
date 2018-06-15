@@ -19,11 +19,14 @@ export default class KataBrowser extends React.Component
         });
 
 
+        const header = this.props.difficulty == 10 ? "Showing all Katas" : "Show Katas with difficulty " + this.props.difficulty;
+
         return(
             <div className="kataBrowser">
+                <div className="kataBrowserTitle"><b>{header}</b></div>
                 {stubs}
             </div>
-            );
+        );
     }
 
 

@@ -2,8 +2,9 @@
 
 import {functions} from '../katas/kataFunctions';
 
-export const getKatas = function()
+export const getKatas = function(difficulty)
 {
+    console.log(difficulty);
     var katas = [
         {
             id: 1,
@@ -108,5 +109,15 @@ export const getKatas = function()
             '    }</PRE>'
         }
     ];
+
+    katas = katas.filter( (value, index) =>
+    {
+        if (difficulty === 10)
+            return value;
+
+        if (difficulty === value.difficulty)
+            return value;
+    });
+
     return katas;
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Mobi from '@mobiscroll/react-lite';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import 'react-bootstrap/dist/react-bootstrap.min';
+import '@mobiscroll/react-lite/dist/css/mobiscroll.min.css';
 import Header from './components/Header';
 import KataBrowser from "./components/KataBrowser";
 import Footer from './components/Footer';
@@ -19,9 +19,23 @@ class App extends React.Component
         super(props);
 
         this.state = {
-            katas: getKatas(),
             solutionsShow: Array(getKatas().length).fill(false),
+            difficulty: 10,
+            katas: getKatas(10),
+            // katas: this.getKatas(this.difficulty),
         }
+
+        this.getKatas(this.state.difficulty);
+    }
+
+    componentDidMount()
+    {
+        this.getKatas(this.state.difficulty);
+    }
+
+    getKatas(dif)
+    {
+        this.setState({katas: getKatas(dif)});
     }
 
     render()
@@ -42,11 +56,12 @@ class App extends React.Component
                 <div className="container">
                     <div className="row justify-content-center">
                         <h3>CodeWars.com JavaScript Problems:</h3>
-                        <Scrollbar/>
                     </div>
+                    <br/><br/>
+                    <Scrollbar difficulty={this.state.difficulty} setDifficulty={(dif) => this.setDifficulty(dif)}/>
                     <div className="row">
                         <div className="col-md-4 border">
-                            <KataBrowser selected={this.state.selectedKata} onclick={(kataId) => this.clickKata(kataId)} katas={this.state.katas}/>
+                            <KataBrowser difficulty={this.state.difficulty} selected={this.state.selectedKata} onclick={(kataId) => this.clickKata(kataId)} katas={this.state.katas}/>
                         </div>
                         <div className="col-md-8 border kata">
                             {kataDetail}
@@ -56,6 +71,14 @@ class App extends React.Component
                 <Footer />
             </div>
         )
+    }
+
+    setDifficulty(dif)
+    {
+        this.setState({
+            difficulty: dif,
+        });
+        this.getKatas(this.state.difficulty);
     }
 
     clickKata(kataId)
