@@ -17,7 +17,7 @@ export default class Header extends React.Component
                         <a href='' className="navbar-brand">Steven Hicks</a>
                     </div>
                     <ul className="nav navbar-nav">
-                        <li className="col-md-6"><a href="#">Steven M. Hicks</a></li>
+                        <li className="col-md-6"><a href="www.stevenmhicks.com">Steven M. Hicks</a></li>
                         <li className="col-md-6"><a href="#">JavaScript Practice</a></li>
                     </ul>
                 </div>

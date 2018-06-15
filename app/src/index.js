@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Mobi from '@mobiscroll/react-lite';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import 'react-bootstrap/dist/react-bootstrap.min';
@@ -7,6 +8,7 @@ import Header from './components/Header';
 import KataBrowser from "./components/KataBrowser";
 import Footer from './components/Footer';
 import Kata from "./components/Kata";
+import Scrollbar from "./components/ScrollBar";
 
 import {getKatas} from "./utilities/getKatas";
 
@@ -40,6 +42,7 @@ class App extends React.Component
                 <div className="container">
                     <div className="row justify-content-center">
                         <h3>CodeWars.com JavaScript Problems:</h3>
+                        <Scrollbar/>
                     </div>
                     <div className="row">
                         <div className="col-md-4 border">

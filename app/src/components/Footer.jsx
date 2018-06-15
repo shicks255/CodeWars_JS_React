@@ -8,7 +8,6 @@ export default class Footer extends React.Component
         const date = new Date();
         const dateString = date.toLocaleDateString();
 
-
         this.state = {
             date: dateString
         }
@@ -17,10 +16,10 @@ export default class Footer extends React.Component
     render()
     {
         return(
-
             <footer>
-                <div className="navbar-fixed-bottom bg-info">
-                    <h1>Steven M Hicks {this.state.date}</h1>
+                <div className="phantomFooter"/>
+                <div className="bg-info footer">
+                    <p>Steven M Hicks {this.state.date}</p>
                 </div>
             </footer>
 
