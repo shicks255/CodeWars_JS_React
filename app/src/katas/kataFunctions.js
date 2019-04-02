@@ -60,7 +60,37 @@ var functions = {
         }, 0);
 
         return sum;
+    },
+
+    filterGeese: function(array)
+    {
+        const geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+
+        return array.filter((val, indx) => {
+            return geese.includes(val) === false;
+        });
+    },
+
+    diagonal: function(matrix)
+    {
+        let principal = 0;
+        let secondary = 0;
+
+        let secondaryCounter = matrix[0].length-1;
+        matrix.forEach((val,idx) => {
+            principal += matrix[idx][idx]
+            secondary += matrix[idx][secondaryCounter];
+            secondaryCounter--;
+        });
+
+        if (principal > secondary)
+            return "Principal Diagonal win!"
+        else if (secondary > principal)
+            return "Secondary Diagonal win!";
+        else
+            return "Draw!";
     }
+
 
 }
 

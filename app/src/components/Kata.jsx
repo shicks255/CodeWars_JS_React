@@ -25,12 +25,15 @@ export default class Kata extends React.Component
         const solution = showSolution ?
             <div dangerouslySetInnerHTML={pretty()}></div>: '';
 
+        const style = {whiteSpace: 'pre-wrap'};
+
         return(
             <div className="col">
                 <h4>{kata.name} - difficulty {kata.difficulty}</h4>
                 <a onClick={() => this.handleClick(kata.url)}>Link</a>
                 <p><b>Description:</b></p>
-                <p>{kata.description}</p>
+                <div style={style}>{kata.description}</div>
+                <br/>
                 <p><b>Tests:</b></p>
                 {questionAnswerArray}
                 <a onClick={() => this.props.toggleSolution(kata.id)}>Solution</a>
