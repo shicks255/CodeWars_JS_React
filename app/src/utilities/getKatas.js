@@ -170,8 +170,74 @@ export const getKatas = function(difficulty)
                 '        return "Secondary Diagonal win!";\n' +
                 '    else\n' +
                 '        return "Draw!";</pre>'
-        }
+        },
+        {
+            id: 7,
+            name: "Containers",
+            difficulty: 5,
+            url: 'https://www.codewars.com/kata/5b80dea49895f71f3e00002d',
+            description: 'A seaport container terminal stores large containers that are eventually loaded on seagoing ships for transport abroad. Containers coming to the terminal by road and rail are stacked at the terminal as they arrive. Seagoing ships carry large numbers of containers. The time to load a ship depends in part on the locations of its containers. The loading time increases when the containers are not on the top of the stacks, but can be fetched only after removing other containers that are on top of them. The container terminal needs a plan for stacking containers in order to decrease loading time. The plan must allow each ship to be loaded by accessing only topmost containers on the stacks, and minimizing the total number of stacks needed. For this problem, we know the order in which ships must be loaded and the order in which containers arrive. Each ship is represented by a capital letter between A and Z (inclusive), and the ships will be loaded in alphabetical order. Each container is labeled with a capital letter representing the ship onto which it needs to be loaded. There is no limit on the number of containers that can be placed in a single stack.\n' +
+                '\n' +
+                'Input\n' +
+                'Each test case consists of a single string containing from 1 to 1000 capital letters representing the order of arrival of a set of containers. For example, the string ABAC means consecutive containers arrive to be loaded onto ships A, B, A, and C, respectively. When all containers have arrived, the ships are loaded in strictly increasing order: first ship A, then ship B, and so on.\n' +
+                '\n' +
+                'Output\n' +
+                'For each input case, return the minimum number of stacks needed to store the containers before loading starts.',
+            testData: [
+                "A", "CBACBACBACBACBA", "CCCCBBBBAAAA", "CODEWARS"
+            ],
+            kata: functions.containers,
+            prettyKata: '<pre>  function(input)\n' +
+                '    {\n' +
+                '        let containers = [];\n' +
+                '\n' +
+                '        input.split(\'\').map(x => x.charCodeAt(0)).forEach((v) => {\n' +
+                '            if (containers.length === 0)\n' +
+                '                containers.push([v]);\n' +
+                '            else\n' +
+                '            {\n' +
+                '                let added = false;\n' +
+                '                let containerToAdd = containers.find((v2) => {\n' +
+                '                    if (v2[v2.length-1] >= v )\n' +
+                '                        return true;\n' +
+                '                    return false;\n' +
+                '                });\n' +
+                '                if (containerToAdd)\n' +
+                '                {\n' +
+                '                    containerToAdd.push(v);\n' +
+                '                    added = true;\n' +
+                '                }\n' +
+                '\n' +
+                '                if(!added)\n' +
+                '                    containers.push([v]);\n' +
+                '            }\n' +
+                '        });\n' +
+                '        return containers.length;\n' +
+                '    },</pre>'
+        },
+        {
+            id: 8,
+            name: "Functional Addition",
+            difficulty: 7,
+            url: 'https://www.codewars.com/kata/538835ae443aae6e03000547',
+            description: 'Create a function add(n)/Add(n) which returns a function that always adds n to any number\n' +
+                '\n' +
+                'var addOne = add(1);\n' +
+                'addOne(3); // 4\n' +
+                '\n' +
+                'var addThree = add(3);\n' +
+                'addThree(3); // 6',
+            testData: [
 
+            ],
+            kata: functions.functionalAddition,
+            prettyKata: '<pre>    function(n)\n' +
+                '    {\n' +
+                '        return (y) => {\n' +
+                '            return y + n;\n' +
+                '        }\n' +
+                '    }</pre>'
+        }
     ];
 
     katas = katas.filter( (value, index) =>

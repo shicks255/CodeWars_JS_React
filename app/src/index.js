@@ -17,7 +17,6 @@ class App extends React.Component
     constructor(props)
     {
         super(props);
-
         this.state = {
             solutionsShow: Array(getKatas().length).fill(false),
             difficulty: 10,
@@ -38,16 +37,16 @@ class App extends React.Component
                 return value;
         });
 
-        const kataDetail = selectedKata ?
-            <Kata solutionsShown={this.state.solutionsShow} selectedKata={selectedKata} toggleSolution={(id) => this.toggleShowSolution(id)}/> :
-                'Select a problem to see its details.';
+        const kataDetail = selectedKata
+            ? <Kata solutionsShown={this.state.solutionsShow} selectedKata={selectedKata} toggleSolution={(id) => this.toggleShowSolution(id)}/>
+            : 'Select a problem to see its details.';
 
         return (
             <div>
                 <Header />
                 <div className="container">
                     <div className="row justify-content-center">
-                        <h3>CodeWars.com JavaScript Problems:</h3>
+                        <h3>CodeWars.com JavaScript Problems</h3>
                     </div>
                     <br/><br/>
                     <Scrollbar difficulty={this.state.difficulty} setDifficulty={(dif) => this.setDifficulty(dif)}/>

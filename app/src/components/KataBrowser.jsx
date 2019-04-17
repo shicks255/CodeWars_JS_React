@@ -15,7 +15,6 @@ export default class KataBrowser extends React.Component
             return (
                 <KataStub selected={this.props.selected} onclick={(kataId) => this.props.onclick(kataId)} key={value.id} kata={value} />
             );
-
         });
 
 
