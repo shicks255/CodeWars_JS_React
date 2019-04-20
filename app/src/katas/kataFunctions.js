@@ -124,6 +124,26 @@ var functions = {
         return (y) => {
             return y + n;
         }
+    },
+
+    vowelRecognition: function(input) {
+        let vowels = ['a','e','i','o','u','A','E','I','O','U'];
+        let appearanceCount = [];
+        for (let i = 0; i < input.length; i++){
+            let adder = input.length + appearanceCount[appearanceCount.length-1]-((i)*2);
+            if (i === 0)
+                adder = input.length;
+            appearanceCount.push(adder);
+        }
+
+        let answer = 0;
+        input.split('').forEach((v,i) => {
+            if (vowels.includes(v)){
+                answer += appearanceCount[i];
+            }
+        });
+
+        return answer;
     }
 
 }

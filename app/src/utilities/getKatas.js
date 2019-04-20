@@ -15,7 +15,7 @@ export const getKatas = function(difficulty)
                 'left of n is equal to the sum of the integers to the right of n.',
             testData: [[1,2,3,4,3,2,1], [1,100,50,-51,1,1], [1,2,3,4,5,6], [20,10,30,10,10,15,35]],
             kata: functions.equalSidesOfAnArray,
-            prettyKata: '<PRE>equalSidesOfAnArray: function(array)\n' +
+            prettyKata: '<PRE>function equalSidesOfArray(array)\n' +
                 '    {\n' +
                 '        let length = array.length;\n' +
                 '        var middle = Math.floor(array.length / 2) - 1;\n' +
@@ -52,7 +52,7 @@ export const getKatas = function(difficulty)
                 'String will never be empty and you do not need to account for different data types',
             testData: ['bitcoin take over the world maybe who knows perhaps', 'turns out random test cases are easier than writing out basic ones'],
             kata: functions.shortestWord,
-            prettyKata: '<PRE>shortestWord: function(word)\n' +
+            prettyKata: '<PRE>function shortestWord(word)\n' +
                 '    {\n' +
                 '        let chunks = word.split(\' \').map((value, index) => value.length);\n' +
                 '        return Math.min(...chunks);\n' +
@@ -70,7 +70,7 @@ export const getKatas = function(difficulty)
                 'You can assume that the supplied array will not be empty.  ',
             testData: [[78,56,232,12,8],[78,56,232,12,18],[78,56,232,412,228],[78,56,232,12,0],[1,56,232,12,8]],
             kata: functions.smallestIntegerInArray,
-            prettyKata: '<PRE>    smallestIntegerInArray: function(array)\n' +
+            prettyKata: '<PRE>function smallestInteger(array)\n' +
                 '    {\n' +
                 '        let smallest = NaN;\n' +
                 '        array.forEach((value, index) =>\n' +
@@ -92,7 +92,7 @@ export const getKatas = function(difficulty)
                 'If there is nothing to sum, the sum is default to 0.',
             testData: [[1,2,3,4,5],[1,-2,3,4,5],[],[-1,-2,-3,-4,-5],[-1,2,3,4,-5]],
             kata: functions.sumOfPositive,
-            prettyKata: '<PRE>sumOfPositive: function(array)\n' +
+            prettyKata: '<PRE>function sumOfPositive(array)\n' +
                 '    {\n' +
                 '        let sum = 0;\n' +
                 '\n' +
@@ -154,7 +154,9 @@ export const getKatas = function(difficulty)
                 ],
             ],
             kata: functions.diagonal,
-            prettyKata: '<pre>    let principal = 0;\n' +
+            prettyKata: '<pre>function diagonal(input)' +
+                '\n{' +
+                '\n  let principal = 0;\n' +
                 '    let secondary = 0;\n' +
                 '\n' +
                 '    let secondaryCounter = matrix[0].length-1;\n' +
@@ -169,7 +171,9 @@ export const getKatas = function(difficulty)
                 '    else if (secondary > principal)\n' +
                 '        return "Secondary Diagonal win!";\n' +
                 '    else\n' +
-                '        return "Draw!";</pre>'
+                '        return "Draw!";' +
+                '\n}' +
+                '</pre>'
         },
         {
             id: 7,
@@ -187,7 +191,7 @@ export const getKatas = function(difficulty)
                 "A", "CBACBACBACBACBA", "CCCCBBBBAAAA", "CODEWARS"
             ],
             kata: functions.containers,
-            prettyKata: '<pre>  function(input)\n' +
+            prettyKata: '<pre>function(input)\n' +
                 '    {\n' +
                 '        let containers = [];\n' +
                 '\n' +
@@ -227,16 +231,49 @@ export const getKatas = function(difficulty)
                 '\n' +
                 'var addThree = add(3);\n' +
                 'addThree(3); // 6',
-            testData: [
-
-            ],
+            testData: [],
             kata: functions.functionalAddition,
-            prettyKata: '<pre>    function(n)\n' +
+            prettyKata: '<pre>function(n)\n' +
                 '    {\n' +
                 '        return (y) => {\n' +
                 '            return y + n;\n' +
                 '        }\n' +
                 '    }</pre>'
+        },
+        {
+            id: 9,
+            name: 'Vowel Recognition',
+            difficulty: 6,
+            url: 'https://www.codewars.com/kata/vowel-recognition/javascript',
+            description: '{a, e, i, o, u, A, E, I, O, U}\n' +
+                '\n' +
+                'Natural Language Understanding is the subdomain of Natural Language Processing where people used to design AI based applications have ability to understand the human languages. HashInclude Speech Processing team has a project named Virtual Assistant. For this project they appointed you as a data engineer (who has good knowledge of creating clean datasets by writing efficient code). As a data engineer your first task is to make vowel recognition dataset. In this task you have to find the presence of vowels in all possible substrings of the given string. For each given string you have to return the total number of vowels.\n' +
+                '\n' +
+                'Example\n' +
+                'Given a string "baceb" you can split it into substrings: b, ba, bac, bace, baceb, a, ac, ace, aceb, c, ce, ceb, e, eb, b. The number of vowels in each of these substrings is 0, 1, 1, 2, 2, 1, 1, 2, 2, 0, 1, 1, 1, 1, 0; if you sum up these number, you get 16 - the expected output.\n' +
+                '\n' +
+                'Note: your solution should have linear time complexity.',
+            testData: ['aba', 'bab', 'abcd', 'aeiouAEIOU'],
+            kata: functions.vowelRecognition,
+            prettyKata: '<pre>function vowelRecognition2(input)\n' +
+                '{\n' +
+                '    let vowels = [\'a\',\'e\',\'i\',\'o\',\'u\',\'A\',\'E\',\'I\',\'O\',\'U\'];\n' +
+                '    let appearanceCount = [];\n' +
+                '    for (let i = 0; i < input.length; i++){\n' +
+                '        let adder = input.length + appearanceCount[appearanceCount.length-1]-((i)*2);\n' +
+                '        if (i === 0)\n' +
+                '            adder = input.length;\n' +
+                '        appearanceCount.push(adder);\n' +
+                '    }\n' +
+                '    let answer = 0;\n' +
+                '    input.split(\'\').forEach((v,i) => {\n' +
+                '        if (vowels.includes(v)){\n' +
+                '            answer += appearanceCount[i];\n' +
+                '        }\n' +
+                '    });\n' +
+                '\n' +
+                '    return answer;\n' +
+                '}</pre>'
         }
     ];
 
