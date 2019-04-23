@@ -144,6 +144,29 @@ var functions = {
         });
 
         return answer;
+    },
+
+    sumOfLargestContiguousSubsequence: function(arr){
+        let highestHere = arr[0];
+        let highestSoFar = arr[0];
+
+        for (let i = 1; i < arr.length; i++){
+            highestHere = Math.max(arr[i], highestHere + arr[i]);
+            highestSoFar = Math.max(highestHere, highestSoFar);
+        }
+
+        return highestSoFar > 0 ? highestSoFar : 0;
+    },
+
+    unluckyDays: function(year){
+        let counts = 0;
+        for (let i = 0; i < 12; i++){
+            let date = new Date(year, i, 13);
+            if (date.getDay() === 5)
+                counts += 1;
+        }
+
+        return counts;
     }
 
 }

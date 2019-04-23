@@ -274,6 +274,70 @@ export const getKatas = function(difficulty)
                 '\n' +
                 '    return answer;\n' +
                 '}</pre>'
+        },
+        {
+            id: 10,
+            name: 'Compute Sum of Largest Contiguous Subsequence',
+            difficulty: 5,
+            url: 'https://www.codewars.com/kata/compute-the-largest-sum-of-all-contiguous-subsequences/javascript',
+            description: '' +
+                'Given an array of numbers, calculate the largest sum of all possible blocks of consecutive elements within the array. The numbers will be a mix of positive and negative values. If all numbers of the sequence are nonnegative, the answer will be the sum of the entire array. If all numbers in the array are negative, your algorithm should return zero. Similarly, an empty array should result in a zero return from your algorithm.\n' +
+                '\n' +
+                'largestSum([-1,-2,-3]) == 0\n' +
+                'largestSum([]) == 0\n' +
+                'largestSum([1,2,3]) == 6\n' +
+                'Easy, right? This becomes a lot more interesting with a mix of positive and negative numbers:\n' +
+                '\n' +
+                'largestSum([31,-41,59,26,-53,58,97,-93,-23,84]) == 187\n' +
+                'The largest sum comes from elements in positions 3 through 7: 59+26+(-53)+58+97 == 187',
+            testData: [[-1,-2,-3], [], [1,2,3,4], [31,-41,59,26,-53,58,97,-93,-23,84], [-1, -1, 4, -1, 4, -5]],
+            kata: functions.sumOfLargestContiguousSubsequence,
+            prettyKata: '<pre>' +
+                'function largestSum2(arr){\n' +
+                '    let highestHere = arr[0];\n' +
+                '    let highestSoFar = arr[0];\n' +
+                '\n' +
+                '    for (let i = 1; i < arr.length; i++){\n' +
+                '        highestHere = Math.max(arr[i], highestHere + arr[i]);\n' +
+                '        highestSoFar = Math.max(highestHere, highestSoFar);\n' +
+                '    }\n' +
+                '\n' +
+                '    return highestSoFar > 0 ? highestSoFar : 0;\n' +
+                '}' +
+                '</pre>'
+        },
+        {
+            id: 11,
+            name: 'Unlucky Days',
+            difficulty: 7,
+            url: 'https://www.codewars.com/kata/unlucky-days',
+            description: '' +
+                'Friday 13th or Black Friday is considered as unlucky day. Calculate how many unlucky days are in the given year.\n' +
+                '\n' +
+                'Find the number of Friday 13th in the given year.\n' +
+                '\n' +
+                'Input: Year as an integer.\n' +
+                '\n' +
+                'Output: Number of Black Fridays in the year as an integer.\n' +
+                '\n' +
+                'Examples:\n' +
+                '\n' +
+                'unluckyDays(2015) == 3\n' +
+                'unluckyDays(1986) == 1',
+            testData: ['1586', '1001', '2819', '2792', '2723', '1909', '1812', '1618' ,'2132', '2065', '2919'],
+            kata: functions.unluckyDays,
+            prettyKata: '<pre>' +
+                'function unluckyDays(year){\n' +
+                '    let counts = 0;\n' +
+                '    for (let i = 0; i < 12; i++){\n' +
+                '        let date = new Date(year, i, 13);\n' +
+                '        if (date.getDay() === 5)\n' +
+                '            counts += 1;\n' +
+                '    }\n' +
+                '\n' +
+                '    return counts;\n' +
+                '}' +
+                '</pre>'
         }
     ];
 
