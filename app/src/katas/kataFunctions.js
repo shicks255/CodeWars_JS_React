@@ -167,7 +167,46 @@ var functions = {
         }
 
         return counts;
+    },
+    spinningRings: function([innerMax, outerMax]) {
+        let moves = 0;
+        let inner = 0, outer = 0
+
+        do{
+            inner--;
+            outer ++;
+            if (inner < 0) inner = innerMax;
+            if (outer > outerMax) outer = 0;
+            moves++;
+        } while (inner !== outer)
+
+        return moves;
+    },
+    primeStrings: function(s){
+        let length = s.length;
+        if (length === 1)
+            return true;
+
+        let chunkSize = Math.floor(length/2);
+        while (chunkSize > 0)
+        {
+            let startIndex = 0;
+            let chunks = [];
+            for (let i = 0; i < length/chunkSize; i++)
+            {
+                chunks.push(s.substr(startIndex, chunkSize));
+                startIndex += chunkSize;
+            }
+            chunkSize--;
+
+            let answer = chunks.every(v => v === chunks[0]);
+            if (answer === true)
+                return false;
+        }
+
+        return true;
     }
+
 
 }
 

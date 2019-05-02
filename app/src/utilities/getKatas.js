@@ -338,6 +338,98 @@ export const getKatas = function(difficulty)
                 '    return counts;\n' +
                 '}' +
                 '</pre>'
+        },
+        {
+            id: 12,
+            name: 'Spinning Rings',
+            difficulty: 7,
+            url: 'https://www.codewars.com/kata/spinning-rings',
+            description: '' +
+                'Imagine two rings with numbers on them. The inner ring spins clockwise (decreasing by 1 each spin) and the outer ring spins counter clockwise (increasing by 1 each spin). We start with both rings aligned on 0 at the top, and on each move we spin each ring one increment. How many moves will it take before both rings show the same number at the top again?\n' +
+                '\n' +
+                'The inner ring has integers from 0 to innerMax and the outer ring has integers from 0 to outerMax, where innerMax and outerMax are integers >= 1.\n' +
+                '\n' +
+                'e.g. if innerMax is 2 and outerMax is 3 then after\n' +
+                '1 move: inner = 2, outer = 1\n' +
+                '2 moves: inner = 1, outer = 2\n' +
+                '3 moves: inner = 0, outer = 3\n' +
+                '4 moves: inner = 2, outer = 0\n' +
+                '5 moves: inner = 1, outer = 1\n' +
+                'Therefore it takes 5 moves for the two rings to reach the same number\n' +
+                'Therefore spinningRings(2, 3) = 5\n' +
+                'e.g. if innerMax is 3 and outerMax is 2 then after\n' +
+                '1 move: inner = 3, outer = 1\n' +
+                '2 moves: inner = 2, outer = 2\n' +
+                'Therefore it takes 2 moves for the two rings to reach the same number\n' +
+                'spinningRings(3, 2) = 2',
+            testData: [[2,3],[3,2],[1,1],[2,2],[3,3]],
+            kata: functions.spinningRings,
+            prettyKata: '<pre>' +
+                'function spinningRings(innerMax, outerMax) {\n' +
+                '    let moves = 0;\n' +
+                '    let inner = 0, outer = 0\n' +
+                '\n' +
+                '    do{\n' +
+                '        inner--;\n' +
+                '        outer ++;\n' +
+                '        if (inner < 0) inner = innerMax;\n' +
+                '        if (outer > outerMax) outer = 0;\n' +
+                '        moves++;\n' +
+                '    } while (inner !== outer)\n' +
+                '\n' +
+                '    return moves;\n' +
+                '};' +
+                '</pre>'
+        },
+        {
+            id: 13,
+            name: 'Prime Strings',
+            difficulty: 6,
+            url: 'https://www.codewars.com/kata/simple-fun-number-116-prime-string',
+            description: '' +
+                'The string is called prime if it cannot be constructed by concatenating some (more than one) equal strings together.\n' +
+                '\n' +
+                'For example, "abac" is prime, but "xyxy" is not("xyxy"="xy"+"xy").\n' +
+                '\n' +
+                'Given a string determine if it is prime or not.\n' +
+                '\n' +
+                'Input/Output\n' +
+                '[input] string s\n' +
+                '\n' +
+                'string containing only lowercase English letters\n' +
+                '\n' +
+                '[output] a boolean value\n' +
+                '\n' +
+                'true if the string is prime, false otherwise' +
+                '',
+            testData: ['abac', 'abab', 'aaaa', 'x', 'abc', 'fdsyffdsyffdsyffdsyffdsyf', 'utdutdtdutd', 'abba'],
+            kata: functions.primeStrings,
+            prettyKata: '<pre>' +
+                'function primeString(s){\n' +
+                '    let length = s.length;\n' +
+                '    if (length === 1)\n' +
+                '        return true;\n' +
+                '\n' +
+                '    let chunkSize = Math.floor(length/2);\n' +
+                '    while (chunkSize > 0)\n' +
+                '    {\n' +
+                '        let startIndex = 0;\n' +
+                '        let chunks = [];\n' +
+                '        for (let i = 0; i < length/chunkSize; i++)\n' +
+                '        {\n' +
+                '            chunks.push(s.substr(startIndex, chunkSize));\n' +
+                '            startIndex += chunkSize;\n' +
+                '        }\n' +
+                '        chunkSize--;\n' +
+                '\n' +
+                '        let answer = chunks.every(v => v === chunks[0]);\n' +
+                '        if (answer === true)\n' +
+                '            return false;\n' +
+                '    }\n' +
+                '\n' +
+                '    return true;\n' +
+                '}' +
+                '</pre>'
         }
     ];
 
