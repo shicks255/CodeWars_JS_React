@@ -440,6 +440,8 @@ export const getKatas = function(difficulty)
 
         if (difficulty === value.difficulty)
             return value;
+
+        return false;
     });
 
     return katas;

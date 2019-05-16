@@ -1,32 +1,21 @@
 import React from "react";
 
-export default class Footer extends React.Component
+export default function Footer(props)
 {
-    constructor(props)
-    {
-        super(props);
-        const date = new Date();
-        const dateString = date.toLocaleDateString();
-
-        this.state = {
-            date: dateString
-        }
-    }
-
-    render()
-    {
-        return(
-            <footer>
-                <div className="phantomFooter"/>
+    const date = new Date();
+    const dateString = date.toLocaleDateString();
+    return(
+        <footer className="footer">
+            <div className="container">
                 <div className="bg-info footer">
-                    <p>Steven M Hicks {this.state.date}</p>
+                    <blockquote className="row justify-content-center">
+                        &copy;&nbsp;
+                        <p>Steven M Hicks {dateString}</p>
+                    </blockquote>
                 </div>
-            </footer>
+            </div>
+        </footer>
 
-        );
-
-    }
-
-
+    );
 }
 

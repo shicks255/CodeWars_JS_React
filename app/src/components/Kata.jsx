@@ -1,52 +1,41 @@
 import React from 'react';
 
-export default class Kata extends React.Component
+export default function(props)
 {
-    constructor(props)
-    {
-        super(props);
+    const kata = props.selectedKata;
+
+    const pretty = function(){
+        return {__html: kata.prettyKata}
     }
 
-    render()
+    const questionAnswerArray = kata.testData.map((value, index) =>
     {
-        const kata = this.props.selectedKata;
+        const answer = kata.kata(value);
+        return (<p key={index}>{value + " = " + answer}</p>);
+    });
 
-        const pretty = function(){
-            return {__html: kata.prettyKata}
-        }
+    const showSolution = props.solutionsShown[kata.id];
+    const solution = showSolution ?
+        <div dangerouslySetInnerHTML={pretty()}></div>: '';
 
-        const questionAnswerArray = kata.testData.map((value, index) =>
-        {
-            const answer = kata.kata(value);
-            return (<p key={index}>{value + " = " + answer}</p>);
-        });
+    const style = {whiteSpace: 'pre-wrap'};
 
-        const showSolution = this.props.solutionsShown[kata.id];
-        const solution = showSolution ?
-            <div dangerouslySetInnerHTML={pretty()}></div>: '';
+    return(
+        <div className="col">
+            <h4>{kata.name} - difficulty {kata.difficulty}</h4>
+            <a onClick={() => handleClick(kata.url)}>Link</a>
+            <p><b>Description:</b></p>
+            <div style={style}>{kata.description}</div>
+            <br/>
+            <p><b>Tests:</b></p>
+            {questionAnswerArray}
+            <a onClick={() => props.toggleSolution(kata.id)}>Solution</a>
+            {solution}
+        </div>
+    );
+}
 
-        const style = {whiteSpace: 'pre-wrap'};
-
-        return(
-            <div className="col">
-                <h4>{kata.name} - difficulty {kata.difficulty}</h4>
-                <a onClick={() => this.handleClick(kata.url)}>Link</a>
-                <p><b>Description:</b></p>
-                <div style={style}>{kata.description}</div>
-                <br/>
-                <p><b>Tests:</b></p>
-                {questionAnswerArray}
-                <a onClick={() => this.props.toggleSolution(kata.id)}>Solution</a>
-                {solution}
-            </div>
-        );
-
-    }
-
-    handleClick(url)
-    {
-        window.open(url, '_blank');
-    }
-
-
+function handleClick(url)
+{
+    window.open(url, '_blank');
 }

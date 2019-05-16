@@ -1,11 +1,13 @@
 import mobiscroll from '@mobiscroll/react-lite';
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 export default class ScrollBar extends React.Component{
     constructor(props)
     {
         super(props);
+        this.state = {
+            difficulty: '10'
+        }
     }
 
     render()
@@ -20,11 +22,15 @@ export default class ScrollBar extends React.Component{
                             step={1}
                             min={4}
                             max={10}
+                            data-live={true}
                             data-step-labels="[4,5,6,7,8,9,10]"
+                            data-tooltip={true}
                             onChange={this.setDifficulty}>
-                            Difficulty <i>(10 = All Katas)</i>
-                            <br/>
-
+                            <div className="row justify-content-center">
+                                Difficulty
+                                <br/>
+                                (10 = All Katas)
+                            </div>
                         </mobiscroll.Slider>
 
                     </div>

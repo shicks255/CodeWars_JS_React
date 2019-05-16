@@ -35,6 +35,7 @@ class App extends React.Component
         {
             if (value.id === this.state.selectedKata)
                 return value;
+            return false;
         });
 
         const kataDetail = selectedKata
@@ -59,6 +60,7 @@ class App extends React.Component
                         </div>
                     </div>
                 </div>
+                <br/><br/><br/>
                 <Footer />
             </div>
         )
@@ -79,7 +81,6 @@ class App extends React.Component
 
     toggleShowSolution(id)
     {
-        const showSolutions = this.state.solutionsShow;
         const newArray = this.state.solutionsShow.slice();
         newArray[id] = !newArray[id];
 

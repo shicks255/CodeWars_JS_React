@@ -1,23 +1,14 @@
 import React from 'react';
 
-export default class KataStub extends React.Component
+export default function KataStub(props)
 {
-    constructor(props)
-    {
-        super(props);
-    }
-
-    render()
-    {
-        const kata = this.props.kata;
-        const selectedClass = this.props.selected === kata.id ? 'selected' : null;
-        return(
-            <div className={selectedClass}>
-                <a onClick={() => this.props.onclick(kata.id)}>
-                    {kata.name}
-                </a>
-            </div>
-        );
-    }
-
+    const kata = props.kata;
+    const selectedClass = props.selected === kata.id ? 'selected' : null;
+    return(
+        <div className={selectedClass}>
+            <a onClick={() => props.onclick(kata.id)}>
+                {kata.name}
+            </a>
+        </div>
+    );
 }

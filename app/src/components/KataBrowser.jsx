@@ -1,32 +1,21 @@
 import React from 'react';
 import KataStub from './KataStub';
 
-export default class KataBrowser extends React.Component
+export default function KataBrowser(props)
 {
-    constructor(props)
+    const stubs = props.katas.map((value, index) =>
     {
-        super(props);
-    }
-
-    render()
-    {
-        const stubs = this.props.katas.map((value, index) =>
-        {
-            return (
-                <KataStub selected={this.props.selected} onclick={(kataId) => this.props.onclick(kataId)} key={value.id} kata={value} />
-            );
-        });
-
-
-        const header = this.props.difficulty == 10 ? "Showing all Katas" : "Showing Katas with difficulty " + this.props.difficulty;
-
-        return(
-            <div className="kataBrowser">
-                <div className="kataBrowserTitle"><b>{header}</b></div>
-                {stubs}
-            </div>
+        return (
+            <KataStub selected={props.selected} onclick={(kataId) => props.onclick(kataId)} key={value.id} kata={value} />
         );
-    }
+    });
 
+    const header = props.difficulty === 10 ? "Showing all Katas" : "Showing Katas with difficulty " + props.difficulty;
 
+    return(
+        <div className="kataBrowser">
+            <div className="kataBrowserTitle"><b>{header}</b></div>
+            {stubs}
+        </div>
+    );
 }

@@ -1,23 +1,15 @@
 import React from "react";
 
 
-export default class Header extends React.Component
+export default function Header(props)
 {
-    constructor(props)
-    {
-        super(props);
-    }
-
-    render()
-    {
-        return(
-            <nav className="navbar navbar-default">
-                <div className="container-fluid">
-                    <div className="navbar-header">
-                        <a href='https://stevenmhicks.com' target={"_blank"} className="navbar-brand">Steven Hicks</a>
-                    </div>
+    return(
+        <nav className="navbar navbar-default">
+            <div className="container-fluid">
+                <div className="navbar-header">
+                    <a href='https://stevenmhicks.com' target={"_blank"} className="navbar-brand"><b>Steven Hicks</b></a>
                 </div>
-            </nav>
-        );
-    }
+            </div>
+        </nav>
+    );
 }
